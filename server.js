@@ -1,5 +1,3 @@
-
-
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
@@ -34,7 +32,7 @@ mongoose
     });
 
 app.get("/", (req, res) => {
-    res.send("Hello from the Flashcard App backend!");
+    res.json("Hello from the Flashcard App backend!");
 });
 
 // Counter لتوليد ID رقمي
