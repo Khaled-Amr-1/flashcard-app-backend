@@ -150,5 +150,5 @@ app.get("/flashcards", async (req, res) => {
 // 🟢 تصدير السيرفر كـ serverless function
 module.exports = async (req, res) => {
     await connectToDB();
-    return app(req, res);
+    app(req, res);
 };
