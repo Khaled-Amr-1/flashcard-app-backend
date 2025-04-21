@@ -1,15 +1,14 @@
 require("dotenv").config();
-const mongoose = require("mongoose");
+const serverless = require("serverless-http");
+const connectToDatabase = require("./connectToDatabase");
 const app = require("./app");
 
-// Connect to MongoDB
-mongoose
-  .connect(process.env.MONGO_URI)
+connectToDatabase()
   .then(() => {
-    console.log("Connected to MongoDB");
+    console.log("Database connected");
   })
-  .catch((error) => console.log(error));
+  .catch((error) => {
+    console.error("Database connection error:", error);
+  });
 
-// Export the app as a serverless function for Vercel
-const serverless = require("serverless-http");
 module.exports = serverless(app);
