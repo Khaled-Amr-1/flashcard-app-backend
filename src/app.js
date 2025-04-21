@@ -18,7 +18,7 @@ app.use(express.json());
 
 // routes
 app.use("/decks", decksRouter);
-// app.use("/cards", cardsRouter);
+app.use("/cards", cardsRouter);
 
 // error routes/not found
 app.use(notFound);
